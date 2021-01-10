@@ -1,0 +1,620 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 53;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		829DA7FA259EE532003FACA3 /* PrivateDNSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829DA7F9259EE532003FACA3 /* PrivateDNSApp.swift */; };
+		829DA7FC259EE532003FACA3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829DA7FB259EE532003FACA3 /* ContentView.swift */; };
+		829DA7FE259EE532003FACA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 829DA7FD259EE532003FACA3 /* Assets.xcassets */; };
+		829DA801259EE532003FACA3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 829DA800259EE532003FACA3 /* Preview Assets.xcassets */; };
+		829DA80C259EE532003FACA3 /* PrivateDNSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829DA80B259EE532003FACA3 /* PrivateDNSTests.swift */; };
+		829DA817259EE532003FACA3 /* PrivateDNSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829DA816259EE532003FACA3 /* PrivateDNSUITests.swift */; };
+		829DA82A259EE55E003FACA3 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 829DA829259EE55E003FACA3 /* NetworkExtension.framework */; };
+		82C39064259EE67C00461BAB /* DNSStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C39063259EE67C00461BAB /* DNSStruct.swift */; };
+		82C39069259EE6CD00461BAB /* DefaultPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C39068259EE6CD00461BAB /* DefaultPage.swift */; };
+		82C3907C259F032F00461BAB /* DNSSettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C3907B259F032F00461BAB /* DNSSettingsPage.swift */; };
+		82C39094259F65B600461BAB /* CustomDNS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C39093259F65B600461BAB /* CustomDNS.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		829DA808259EE532003FACA3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 829DA7EE259EE531003FACA3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 829DA7F5259EE532003FACA3;
+			remoteInfo = PrivateDNS;
+		};
+		829DA813259EE532003FACA3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 829DA7EE259EE531003FACA3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 829DA7F5259EE532003FACA3;
+			remoteInfo = PrivateDNS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		829DA7F6259EE532003FACA3 /* PrivateDNS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrivateDNS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		829DA7F9259EE532003FACA3 /* PrivateDNSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateDNSApp.swift; sourceTree = "<group>"; };
+		829DA7FB259EE532003FACA3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		829DA7FD259EE532003FACA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		829DA800259EE532003FACA3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		829DA802259EE532003FACA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		829DA807259EE532003FACA3 /* PrivateDNSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrivateDNSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		829DA80B259EE532003FACA3 /* PrivateDNSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateDNSTests.swift; sourceTree = "<group>"; };
+		829DA80D259EE532003FACA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		829DA812259EE532003FACA3 /* PrivateDNSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrivateDNSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		829DA816259EE532003FACA3 /* PrivateDNSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateDNSUITests.swift; sourceTree = "<group>"; };
+		829DA818259EE532003FACA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		829DA827259EE55E003FACA3 /* PrivateDNS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PrivateDNS.entitlements; sourceTree = "<group>"; };
+		829DA829259EE55E003FACA3 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
+		82C39063259EE67C00461BAB /* DNSStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSStruct.swift; sourceTree = "<group>"; };
+		82C39068259EE6CD00461BAB /* DefaultPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultPage.swift; sourceTree = "<group>"; };
+		82C3907B259F032F00461BAB /* DNSSettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSSettingsPage.swift; sourceTree = "<group>"; };
+		82C39093259F65B600461BAB /* CustomDNS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDNS.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		829DA7F3259EE532003FACA3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				829DA82A259EE55E003FACA3 /* NetworkExtension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		829DA804259EE532003FACA3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		829DA80F259EE532003FACA3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		829DA7ED259EE531003FACA3 = {
+			isa = PBXGroup;
+			children = (
+				829DA7F8259EE532003FACA3 /* PrivateDNS */,
+				829DA80A259EE532003FACA3 /* PrivateDNSTests */,
+				829DA815259EE532003FACA3 /* PrivateDNSUITests */,
+				829DA7F7259EE532003FACA3 /* Products */,
+				829DA828259EE55E003FACA3 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		829DA7F7259EE532003FACA3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				829DA7F6259EE532003FACA3 /* PrivateDNS.app */,
+				829DA807259EE532003FACA3 /* PrivateDNSTests.xctest */,
+				829DA812259EE532003FACA3 /* PrivateDNSUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		829DA7F8259EE532003FACA3 /* PrivateDNS */ = {
+			isa = PBXGroup;
+			children = (
+				829DA827259EE55E003FACA3 /* PrivateDNS.entitlements */,
+				829DA7F9259EE532003FACA3 /* PrivateDNSApp.swift */,
+				829DA7FB259EE532003FACA3 /* ContentView.swift */,
+				82C3907B259F032F00461BAB /* DNSSettingsPage.swift */,
+				82C39068259EE6CD00461BAB /* DefaultPage.swift */,
+				82C39093259F65B600461BAB /* CustomDNS.swift */,
+				829DA7FD259EE532003FACA3 /* Assets.xcassets */,
+				829DA802259EE532003FACA3 /* Info.plist */,
+				82C39063259EE67C00461BAB /* DNSStruct.swift */,
+				829DA7FF259EE532003FACA3 /* Preview Content */,
+			);
+			path = PrivateDNS;
+			sourceTree = "<group>";
+		};
+		829DA7FF259EE532003FACA3 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				829DA800259EE532003FACA3 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		829DA80A259EE532003FACA3 /* PrivateDNSTests */ = {
+			isa = PBXGroup;
+			children = (
+				829DA80B259EE532003FACA3 /* PrivateDNSTests.swift */,
+				829DA80D259EE532003FACA3 /* Info.plist */,
+			);
+			path = PrivateDNSTests;
+			sourceTree = "<group>";
+		};
+		829DA815259EE532003FACA3 /* PrivateDNSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				829DA816259EE532003FACA3 /* PrivateDNSUITests.swift */,
+				829DA818259EE532003FACA3 /* Info.plist */,
+			);
+			path = PrivateDNSUITests;
+			sourceTree = "<group>";
+		};
+		829DA828259EE55E003FACA3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				829DA829259EE55E003FACA3 /* NetworkExtension.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		829DA7F5259EE532003FACA3 /* PrivateDNS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 829DA81B259EE532003FACA3 /* Build configuration list for PBXNativeTarget "PrivateDNS" */;
+			buildPhases = (
+				829DA7F2259EE532003FACA3 /* Sources */,
+				829DA7F3259EE532003FACA3 /* Frameworks */,
+				829DA7F4259EE532003FACA3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PrivateDNS;
+			productName = PrivateDNS;
+			productReference = 829DA7F6259EE532003FACA3 /* PrivateDNS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		829DA806259EE532003FACA3 /* PrivateDNSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 829DA81E259EE532003FACA3 /* Build configuration list for PBXNativeTarget "PrivateDNSTests" */;
+			buildPhases = (
+				829DA803259EE532003FACA3 /* Sources */,
+				829DA804259EE532003FACA3 /* Frameworks */,
+				829DA805259EE532003FACA3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				829DA809259EE532003FACA3 /* PBXTargetDependency */,
+			);
+			name = PrivateDNSTests;
+			productName = PrivateDNSTests;
+			productReference = 829DA807259EE532003FACA3 /* PrivateDNSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		829DA811259EE532003FACA3 /* PrivateDNSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 829DA821259EE532003FACA3 /* Build configuration list for PBXNativeTarget "PrivateDNSUITests" */;
+			buildPhases = (
+				829DA80E259EE532003FACA3 /* Sources */,
+				829DA80F259EE532003FACA3 /* Frameworks */,
+				829DA810259EE532003FACA3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				829DA814259EE532003FACA3 /* PBXTargetDependency */,
+			);
+			name = PrivateDNSUITests;
+			productName = PrivateDNSUITests;
+			productReference = 829DA812259EE532003FACA3 /* PrivateDNSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		829DA7EE259EE531003FACA3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastSwiftUpdateCheck = 1230;
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					829DA7F5259EE532003FACA3 = {
+						CreatedOnToolsVersion = 12.3;
+					};
+					829DA806259EE532003FACA3 = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = 829DA7F5259EE532003FACA3;
+					};
+					829DA811259EE532003FACA3 = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = 829DA7F5259EE532003FACA3;
+					};
+				};
+			};
+			buildConfigurationList = 829DA7F1259EE531003FACA3 /* Build configuration list for PBXProject "PrivateDNS" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 829DA7ED259EE531003FACA3;
+			productRefGroup = 829DA7F7259EE532003FACA3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				829DA7F5259EE532003FACA3 /* PrivateDNS */,
+				829DA806259EE532003FACA3 /* PrivateDNSTests */,
+				829DA811259EE532003FACA3 /* PrivateDNSUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		829DA7F4259EE532003FACA3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				829DA801259EE532003FACA3 /* Preview Assets.xcassets in Resources */,
+				829DA7FE259EE532003FACA3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		829DA805259EE532003FACA3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		829DA810259EE532003FACA3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		829DA7F2259EE532003FACA3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82C39064259EE67C00461BAB /* DNSStruct.swift in Sources */,
+				82C3907C259F032F00461BAB /* DNSSettingsPage.swift in Sources */,
+				82C39094259F65B600461BAB /* CustomDNS.swift in Sources */,
+				829DA7FC259EE532003FACA3 /* ContentView.swift in Sources */,
+				829DA7FA259EE532003FACA3 /* PrivateDNSApp.swift in Sources */,
+				82C39069259EE6CD00461BAB /* DefaultPage.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		829DA803259EE532003FACA3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				829DA80C259EE532003FACA3 /* PrivateDNSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		829DA80E259EE532003FACA3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				829DA817259EE532003FACA3 /* PrivateDNSUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		829DA809259EE532003FACA3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 829DA7F5259EE532003FACA3 /* PrivateDNS */;
+			targetProxy = 829DA808259EE532003FACA3 /* PBXContainerItemProxy */;
+		};
+		829DA814259EE532003FACA3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 829DA7F5259EE532003FACA3 /* PrivateDNS */;
+			targetProxy = 829DA813259EE532003FACA3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		829DA819259EE532003FACA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		829DA81A259EE532003FACA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		829DA81C259EE532003FACA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PrivateDNS/PrivateDNS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_ASSET_PATHS = "\"PrivateDNS/Preview Content\"";
+				DEVELOPMENT_TEAM = 42Q59U6YA4;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = PrivateDNS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = PrivateDNS.PrivateDNS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		829DA81D259EE532003FACA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PrivateDNS/PrivateDNS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_ASSET_PATHS = "\"PrivateDNS/Preview Content\"";
+				DEVELOPMENT_TEAM = 42Q59U6YA4;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = PrivateDNS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = PrivateDNS.PrivateDNS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		829DA81F259EE532003FACA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 42Q59U6YA4;
+				INFOPLIST_FILE = PrivateDNSTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = PrivateDNS.PrivateDNSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PrivateDNS.app/PrivateDNS";
+			};
+			name = Debug;
+		};
+		829DA820259EE532003FACA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 42Q59U6YA4;
+				INFOPLIST_FILE = PrivateDNSTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = PrivateDNS.PrivateDNSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PrivateDNS.app/PrivateDNS";
+			};
+			name = Release;
+		};
+		829DA822259EE532003FACA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 42Q59U6YA4;
+				INFOPLIST_FILE = PrivateDNSUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = PrivateDNS.PrivateDNSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PrivateDNS;
+			};
+			name = Debug;
+		};
+		829DA823259EE532003FACA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 42Q59U6YA4;
+				INFOPLIST_FILE = PrivateDNSUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = PrivateDNS.PrivateDNSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PrivateDNS;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		829DA7F1259EE531003FACA3 /* Build configuration list for PBXProject "PrivateDNS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				829DA819259EE532003FACA3 /* Debug */,
+				829DA81A259EE532003FACA3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		829DA81B259EE532003FACA3 /* Build configuration list for PBXNativeTarget "PrivateDNS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				829DA81C259EE532003FACA3 /* Debug */,
+				829DA81D259EE532003FACA3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		829DA81E259EE532003FACA3 /* Build configuration list for PBXNativeTarget "PrivateDNSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				829DA81F259EE532003FACA3 /* Debug */,
+				829DA820259EE532003FACA3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		829DA821259EE532003FACA3 /* Build configuration list for PBXNativeTarget "PrivateDNSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				829DA822259EE532003FACA3 /* Debug */,
+				829DA823259EE532003FACA3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 829DA7EE259EE531003FACA3 /* Project object */;
+}
