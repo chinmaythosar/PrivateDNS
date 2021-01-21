@@ -8,21 +8,22 @@
 import SwiftUI
 import NetworkExtension
 
+
+
 struct CustomDNS: View {
+    
+    @State var alertSetting = false
 
-    @State var showErrorMessage = false
-    @State var errorBool = false
-
+    @State var dotselect: Bool = false
     
     @State var DNS4_1: String = UserDefaults.standard.string(forKey: "DNS4_1") ?? ""
     @State var DNS4_2: String = UserDefaults.standard.string(forKey: "DNS4_2") ?? ""
     @State var DNS6_1: String = UserDefaults.standard.string(forKey: "DNS6_1") ?? ""
     @State var DNS6_2: String = UserDefaults.standard.string(forKey: "DNS6_2") ?? ""
     @State var DNSURL: String = UserDefaults.standard.string(forKey: "DNSURL") ?? ""
-    @State var dotSelect: Bool = UserDefaults.standard.bool(forKey: "dotselect")
     
     func applyDNS(config:configStruct,dot:Bool){
-
+        self.alertSetting = false
         if(dot == false){
             NEDNSSettingsManager.shared().loadFromPreferences(){ loadError in
                 if let loadError = loadError {
@@ -33,10 +34,13 @@ struct CustomDNS: View {
                 let dohSettings = NEDNSOverHTTPSSettings(servers: config.servers)
                 dohSettings.serverURL = URL(string: config.serverURL)
                 NEDNSSettingsManager.shared().dnsSettings = dohSettings
-                NEDNSSettingsManager.shared().saveToPreferences { saveError in
-                    if saveError != nil {
-                        self.errorBool = true
+                NEDNSSettingsManager.shared().saveToPreferences { (error:Error?) in
+                    if ((error) != nil) {
+                        self.alertSetting = true
                         return
+                    }
+                    else{
+                        UserDefaults.standard.set("Custom", forKey: "Name")
                     }
                 }
             }
@@ -50,10 +54,13 @@ struct CustomDNS: View {
                 let dotSettings = NEDNSOverTLSSettings(servers: config.servers)
                 dotSettings.serverName = config.serverURL
                 NEDNSSettingsManager.shared().dnsSettings = dotSettings
-                NEDNSSettingsManager.shared().saveToPreferences { saveError in
-                    if saveError != nil {
-                        self.errorBool = true
+                NEDNSSettingsManager.shared().saveToPreferences { (error:Error?) in
+                    if ((error) != nil) {
+                        self.alertSetting = true
                         return
+                    }
+                    else{
+                        UserDefaults.standard.set("Custom", forKey: "Name")
                     }
                 }
             }
@@ -62,6 +69,7 @@ struct CustomDNS: View {
     
     var body: some View {
         List{
+
             Section(header: Text("CustomConfig")) {
                 TextField("DNS4", text: $DNS4_1)
                 TextField("DNS4", text: $DNS4_2)
@@ -71,40 +79,29 @@ struct CustomDNS: View {
                 TextField("DNS URL", text: $DNSURL)
             }
             Section{
-                Toggle(isOn: self.$dotSelect) {
+                Toggle(isOn: self.$dotselect) {
                     Text("DoT")
-                }.onAppear(){
-                    self.dotSelect = UserDefaults.standard.bool(forKey: "dotselect")
                 }
                 Button(action: {
-                    
                     UserDefaults.standard.setValue(self.DNS4_1, forKey: "DNS4_1")
                     UserDefaults.standard.setValue(self.DNS4_2, forKey: "DNS4_2")
                     UserDefaults.standard.setValue(self.DNS6_1, forKey: "DNS6_1")
                     UserDefaults.standard.setValue(self.DNS6_2, forKey: "DNS6_2")
                     UserDefaults.standard.setValue(self.DNSURL, forKey: "DNSURL")
-                    UserDefaults.standard.setValue(self.dotSelect, forKey: "dotselect")
 
                     var serverlist = [ self.DNS4_1 , self.DNS4_2 , self.DNS6_1, self.DNS6_2]
                     serverlist = serverlist.filter({ $0 != ""})
                     let dnsConfigCustom = configStruct(servers: serverlist , serverURL: self.DNSURL)
-                    if(self.dotSelect == false){
-                        applyDNS(config: dnsConfigCustom, dot: false)
+                    if(self.dotselect == false){
+                        applyDNS(config: dnsConfigCustom, dot: false )
                     }
                     else{
-                       applyDNS(config: dnsConfigCustom, dot: true)
+                        applyDNS(config: dnsConfigCustom, dot: true)
                     }
-                    if(self.errorBool == true){
-                        self.showErrorMessage = true
-                        self.errorBool = false
-                    }
-                    else{
-                        UserDefaults.standard.set("Custom", forKey: "Name")
-                    }
-                    
+                   
                 }, label: {
-                    Text("Apply").alert(isPresented: $showErrorMessage) {
-                        Alert(title: Text("Invalid DNS Settings"), message: Text("Invalid DNS Detected. Not Applied. (Possible it's same DNS as current.)"), dismissButton: .default(Text("OK!")))
+                    Text("Apply").alert(isPresented: $alertSetting ) {
+                        Alert(title: Text("Invalid DNS Settings"), message: Text("Invalid DNS Detected. (Possible it's same DNS as current.)"), dismissButton: .default(Text("OK!")))
                     }
                 })
 
