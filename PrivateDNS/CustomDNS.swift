@@ -14,7 +14,7 @@ struct CustomDNS: View {
     
     @State var alertSetting = false
 
-    @State var dotselect: Bool = false
+    @State var dotselect: Bool = UserDefaults.standard.bool(forKey: "dotselect")
     
     @State var DNS4_1: String = UserDefaults.standard.string(forKey: "DNS4_1") ?? ""
     @State var DNS4_2: String = UserDefaults.standard.string(forKey: "DNS4_2") ?? ""
@@ -88,6 +88,7 @@ struct CustomDNS: View {
                     UserDefaults.standard.setValue(self.DNS6_1, forKey: "DNS6_1")
                     UserDefaults.standard.setValue(self.DNS6_2, forKey: "DNS6_2")
                     UserDefaults.standard.setValue(self.DNSURL, forKey: "DNSURL")
+                    UserDefaults.standard.setValue(self.dotselect, forKey: "dotselect")
 
                     var serverlist = [ self.DNS4_1 , self.DNS4_2 , self.DNS6_1, self.DNS6_2]
                     serverlist = serverlist.filter({ $0 != ""})
