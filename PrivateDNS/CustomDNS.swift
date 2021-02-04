@@ -8,6 +8,18 @@
 import SwiftUI
 import NetworkExtension
 
+struct RoundedRectangleButtonStyle: ButtonStyle {
+  func makeBody(configuration: Configuration) -> some View {
+    HStack {
+      Spacer()
+      configuration.label
+      Spacer()
+    }
+    .padding()
+    .background(Color.blue.cornerRadius(8))
+    .scaleEffect(configuration.isPressed ? 0.95 : 1)
+  }
+}
 
 
 struct CustomDNS: View {
@@ -104,7 +116,7 @@ struct CustomDNS: View {
                     Text("Apply").alert(isPresented: $alertSetting ) {
                         Alert(title: Text("Invalid DNS Settings"), message: Text("Invalid DNS Detected. (Possible it's same DNS as current.)"), dismissButton: .default(Text("OK!")))
                     }
-                })
+                }).buttonStyle(RoundedRectangleButtonStyle())
 
                 }
 

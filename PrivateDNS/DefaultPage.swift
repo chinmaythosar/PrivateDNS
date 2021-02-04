@@ -17,25 +17,51 @@ struct DefaultPage: View {
                 .padding(.bottom)
             Text("Note: The Default is Cloudflare DNS over HTTPS (DoH).")
             Divider()
-            /*Toggle("Disable on WiFi", isOn: self.$wifiactivation).onReceive([self.wifiactivation].publisher.first(), perform: { _ in
+            Toggle("Disable on WiFi", isOn: self.$wifiactivation).onReceive([self.wifiactivation].publisher.first(), perform: { _ in
                 if self.wifiactivation {
-                    let wifitoggle = NEOnDemandRuleDisconnect()
-                    wifitoggle.interfaceTypeMatch = .wiFi
-                    
-                    NEDNSSettingsManager.shared().onDemandRules = [
-                        wifitoggle
-                    ]
+                    NEDNSSettingsManager.shared().loadFromPreferences(){ loadError in
+                        if let loadError = loadError {
+                            print(loadError)
+                            return
+                        }
+                        
+                        let wifitoggle = NEOnDemandRuleDisconnect()
+                        wifitoggle.interfaceTypeMatch = .wiFi
+                        
+                        NEDNSSettingsManager.shared().onDemandRules = [
+                            wifitoggle
+                        ]
+                        UserDefaults.standard.set(true, forKey: "wifitoggle")
+                        NEDNSSettingsManager.shared().saveToPreferences { saveError in
+                            if let saveError = saveError {
+                                print(saveError)
+                                return
+                            }
+                        }
+                    }
                 }
                 else{
-                    let enableByDefault = NEOnDemandRuleConnect()
-                    enableByDefault.interfaceTypeMatch = .any
-                    
-                    NEDNSSettingsManager.shared().onDemandRules = [
-                        enableByDefault
-                    ]
- 
+                    NEDNSSettingsManager.shared().loadFromPreferences(){ loadError in
+                        if let loadError = loadError {
+                            print(loadError)
+                            return
+                        }
+                        let enableByDefault = NEOnDemandRuleConnect()
+                        enableByDefault.interfaceTypeMatch = .any
+                        
+                        NEDNSSettingsManager.shared().onDemandRules = [
+                            enableByDefault
+                        ]
+                        UserDefaults.standard.set(false, forKey: "wifitoggle")
+                        NEDNSSettingsManager.shared().saveToPreferences { saveError in
+                            if let saveError = saveError {
+                                print(saveError)
+                                return
+                            }
+                        }
+                    }
                 }
-            })*/
+            })
         }.padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20))
         
     }
