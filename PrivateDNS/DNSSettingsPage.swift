@@ -9,23 +9,41 @@ import SwiftUI
 import NetworkExtension
 
 
+struct DNSData: Identifiable{
+    let id = UUID()
+    let name: String
+    let ip:Array<String>
+    let url:String
+    let dot:Bool
+}
+
+let cloudflaredoh = DNSData(name: "CloudFlare DoH", ip: [ "1.1.1.1","1.0.0.1","2606:4700:4700::1111","2606:4700:4700::1001" ], url: "https://cloudflare-dns.com/dns-query", dot: false)
+
+let cloudflaredot = DNSData(name: "CloudFlare DoT", ip: [ "1.1.1.1","1.0.0.1","2606:4700:4700::1111","2606:4700:4700::1001" ], url: "cloudflare-dns.com", dot: true)
 
 
+let googledoh = DNSData(name: "Google DoH", ip: ["8.8.8.8","8.8.4.4","2001:4860:4860::8888","2001:4860:4860::8844"], url: "https://dns.google/dns-query", dot: false)
+
+let googledot = DNSData(name: "Google DoT", ip: ["8.8.8.8","8.8.4.4","2001:4860:4860::8888","2001:4860:4860::8844"], url: "dns.google", dot: true)
+
+let quad9doh = DNSData(name: "Quad9 DoH", ip: ["9.9.9.9","149.112.112.112","2620:fe::fe","2620:fe::9"], url: "https://dns.quad9.net/dns-query", dot: false)
+
+let quad9dot = DNSData(name: "Quad9 DoT", ip: ["9.9.9.9","149.112.112.112","2620:fe::fe","2620:fe::9"], url: "ns.quad9.net", dot: true)
 
 struct DNSSettingsPage: View {
     //Apply DNS input servers and url with bool to select DoT or DoH
     //Use NEDNSSettingsManager Don't create object
-    func applyDNS(servers:Array<String>,serverURL:String,dot:Bool){
+    func applyDNS(DNSData:DNSData){
         
-        if(dot == false){
+        if(DNSData.dot == false){
             NEDNSSettingsManager.shared().loadFromPreferences(){ loadError in
                 if let loadError = loadError {
                     print(loadError)
                     return
                 }
                 
-                let dohSettings = NEDNSOverHTTPSSettings(servers: servers)
-                dohSettings.serverURL = URL(string: serverURL)
+                let dohSettings = NEDNSOverHTTPSSettings(servers: DNSData.ip)
+                dohSettings.serverURL = URL(string: DNSData.url)
                 NEDNSSettingsManager.shared().dnsSettings = dohSettings
                 NEDNSSettingsManager.shared().saveToPreferences { saveError in
                     if let saveError = saveError {
@@ -46,8 +64,8 @@ struct DNSSettingsPage: View {
                     print(loadError)
                     return
                 }
-                let dotSettings = NEDNSOverTLSSettings(servers: servers)
-                dotSettings.serverName = serverURL
+                let dotSettings = NEDNSOverTLSSettings(servers: DNSData.ip)
+                dotSettings.serverName = DNSData.url
                 NEDNSSettingsManager.shared().dnsSettings = dotSettings
                 NEDNSSettingsManager.shared().saveToPreferences { saveError in
                     if let saveError = saveError {
@@ -65,61 +83,23 @@ struct DNSSettingsPage: View {
     //
     @State var currentString = UserDefaults.standard.string(forKey: "Name") ?? "Default - CloudFlare DoH"
     
-
+    let dnslist:[DNSData] = [cloudflaredoh,cloudflaredot,googledoh,googledot,quad9doh,quad9dot]
+    
     
     var body: some View {
-            List{
-                Text("DNS: \(self.currentString)").font(Font.title.weight(.bold)).contentShape(Rectangle())
-                    Spacer()
-                    Text("CloudFlare DNS over HTTPS").contentShape(Rectangle())
-                .onTapGesture {
-                applyDNS(servers: [ "1.1.1.1","1.0.0.1","2606:4700:4700::1111","2606:4700:4700::1001" ], serverURL: "https://cloudflare-dns.com/dns-query",dot: false)
-                UserDefaults.standard.set("CloudFlare DoH", forKey: "Name")
-                self.currentString = "CloudFlare DoH"
-                }
-                    Text("CloudFlare DNS over TLS")
-                .onTapGesture {
-                    applyDNS(servers: [ "1.1.1.1","1.0.0.1","2606:4700:4700::1111","2606:4700:4700::1001" ], serverURL: "cloudflare-dns.com", dot: true)
-                    UserDefaults.standard.set("CloudFlare DoT", forKey: "Name")
-                    self.currentString = "CloudFlare DoT"
-                }.contentShape(Rectangle())
-                
-                    Text("Google DNS over HTTPS")
-                .onTapGesture {
-                    applyDNS(servers: ["8.8.8.8","8.8.4.4","2001:4860:4860::8888","2001:4860:4860::8844"], serverURL: "https://dns.google/dns-query", dot: false)
-                    UserDefaults.standard.set("Google DoH", forKey: "Name")
-                    self.currentString = "Google DoH"
-
-                }.contentShape(Rectangle())
-                
-                    Text("Google DNS over TLS")
-                .onTapGesture {
-                    applyDNS(servers: ["8.8.8.8","8.8.4.4","2001:4860:4860::8888","2001:4860:4860::8844"], serverURL: "dns.google", dot: true)
-                    UserDefaults.standard.set("Google DoT", forKey: "Name")
-                    self.currentString = "Google DoT"
-
-                }.contentShape(Rectangle())
-                
-                    Text("Quad9 DNS over HTTPS")
-                .onTapGesture {
-                    applyDNS(servers:["9.9.9.9","149.112.112.112","2620:fe::fe","2620:fe::9"], serverURL: "https://dns.quad9.net/dns-query", dot: false)
-                    UserDefaults.standard.set("Quad9 DoH", forKey: "Name")
-                    self.currentString = "Quad9 DoH"
-
-                }.contentShape(Rectangle())
-                
-                    Text("Quad9 DNS over TLS")
-                .onTapGesture {
-                    applyDNS(servers: ["9.9.9.9","149.112.112.112","2620:fe::fe","2620:fe::9"], serverURL: "ns.quad9.net", dot: true)
-                    UserDefaults.standard.set("Quad9 DoT", forKey: "Name")
-                    self.currentString = "Quad9 DoT"
-
+        List{
+            ForEach(dnslist){ temp in
+                Text(temp.name).onTapGesture {
+                    applyDNS(DNSData: temp)
                 }.contentShape(Rectangle())
             }
-        
-        .onAppear(){
-            self.currentString = UserDefaults.standard.string(forKey: "Name") ?? "Default - CloudFlare DoH"
         }
+        
+        
+        
+        
+        
+        
     }
 }
 
