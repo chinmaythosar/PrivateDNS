@@ -9,7 +9,7 @@ import SwiftUI
 import NetworkExtension
 
 struct DefaultPage: View {
-    @State private var wifiactivation = false
+    @State private var wifiactivation = UserDefaults.standard.bool(forKey: "wifitoggle")
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -31,11 +31,14 @@ struct DefaultPage: View {
                         NEDNSSettingsManager.shared().onDemandRules = [
                             wifitoggle
                         ]
-                        UserDefaults.standard.set(true, forKey: "wifitoggle")
+                        
                         NEDNSSettingsManager.shared().saveToPreferences { saveError in
                             if let saveError = saveError {
                                 print(saveError)
                                 return
+                            }
+                            else{
+                                UserDefaults.standard.setValue(true, forKey: "wifitoggle")
                             }
                         }
                     }
@@ -52,11 +55,13 @@ struct DefaultPage: View {
                         NEDNSSettingsManager.shared().onDemandRules = [
                             enableByDefault
                         ]
-                        UserDefaults.standard.set(false, forKey: "wifitoggle")
                         NEDNSSettingsManager.shared().saveToPreferences { saveError in
                             if let saveError = saveError {
                                 print(saveError)
                                 return
+                            }
+                            else{
+                                UserDefaults.standard.setValue(false, forKey: "wifitoggle")
                             }
                         }
                     }
