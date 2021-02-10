@@ -9,6 +9,8 @@ import SwiftUI
 import NetworkExtension
 
 
+//Dns Struct for applying DNS.
+
 struct DNSData: Identifiable{
     let id = UUID()
     let name: String
@@ -18,6 +20,7 @@ struct DNSData: Identifiable{
 }
 
 //DNS Servers List
+
 
 let cloudflaredoh = DNSData(name: "CloudFlare DoH", ip: [ "1.1.1.1","1.0.0.1","2606:4700:4700::1111","2606:4700:4700::1001" ], url: "https://cloudflare-dns.com/dns-query", dot: false)
 
@@ -56,12 +59,13 @@ let adguardnonfilteringdoh = DNSData(name: "Adguard Non-Filtering DoH", ip: ["94
 let adguardnonfilteringdot = DNSData(name: "Adguard Non-Filtering DoT", ip: ["94.140.14.140","94.140.14.141","2a10:50c0::1:ff","2a10:50c0::2:ff"] , url: "dns-unfiltered.adguard.com", dot: true)
 
 struct DNSSettingsPage: View {
+    //Get current DNS State for View
     @State var currentDNS = UserDefaults.standard.string(forKey: "Name") ?? "Default - CloudFlare DoH"
 
     //Apply DNS input servers and url with bool to select DoT or DoH
     //Use NEDNSSettingsManager Don't create object
     func applyDNS(DNSData:DNSData){
-        
+        // Load current profile for applying
         if(DNSData.dot == false){
             NEDNSSettingsManager.shared().loadFromPreferences(){ loadError in
                 if let loadError = loadError {
@@ -78,6 +82,7 @@ struct DNSSettingsPage: View {
                         return
                     }
                     else{
+                        //If save is successful update current DNS
                         UserDefaults.standard.set(DNSData.name, forKey: "Name")
                         self.currentDNS = UserDefaults.standard.string(forKey: "Name") ?? "Default - CloudFlare DoH"
                     }
@@ -113,14 +118,14 @@ struct DNSSettingsPage: View {
     
     
     
-    
+    //DNS List array
     let dnslist:[DNSData] = [cloudflaredoh,cloudflaredot,googledoh,googledot,quad9doh,quad9dot
                              ,cleanbrowsingsecdoh,cleanbrowsingsecdot,cleanbrowsingfamdoh,cleanbrowsingfamdot,cleanbrowsingadultdoh,cleanbrowsingadultdot
                              ,adguarddefaultdoh,adguarddefaultdot,adguardfamilydoh,adguardfamilydot,adguardnonfilteringdoh,adguardnonfilteringdot]
     
     
     
-    var body: some View {
+   var body: some View {
         VStack{
             Divider()
             Text("DNS: \(self.currentDNS)")
@@ -134,6 +139,10 @@ struct DNSSettingsPage: View {
             }
         }
     }
+    
+    
+        
+
 }
 
 struct DNSSettingsPage_Previews: PreviewProvider {

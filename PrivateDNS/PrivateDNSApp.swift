@@ -37,7 +37,7 @@ struct PrivateDNSApp: App {
                     UserDefaults.standard.set("", forKey: "DNS6_1")
                     UserDefaults.standard.set("", forKey: "DNS6_2")
                     UserDefaults.standard.set("", forKey: "DNSURL")
-                    UserDefaults.standard.set(true, forKey: "dotselect")
+                    UserDefaults.standard.set(false, forKey: "dotselect")
                     UserDefaults.standard.set(false, forKey: "wifitoggle")
 
 

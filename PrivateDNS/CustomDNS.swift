@@ -95,6 +95,8 @@ struct CustomDNS: View {
                     Text("DoT")
                 }
                 Button(action: {
+                    //Data Store User Defaults. only required on first launch
+                    //Changing this may reset the app settings.
                     UserDefaults.standard.setValue(self.DNS4_1, forKey: "DNS4_1")
                     UserDefaults.standard.setValue(self.DNS4_2, forKey: "DNS4_2")
                     UserDefaults.standard.setValue(self.DNS6_1, forKey: "DNS6_1")
