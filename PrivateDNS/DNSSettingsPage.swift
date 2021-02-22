@@ -136,6 +136,8 @@ struct DNSSettingsPage: View {
                         applyDNS(DNSData: temp)
                     }.contentShape(Rectangle())
                 }
+            }.onAppear(){
+                self.currentDNS = UserDefaults.standard.string(forKey: "Name") ?? "Default - CloudFlare DoH"
             }
         }
     }
