@@ -114,9 +114,9 @@
 				82C3907B259F032F00461BAB /* DNSSettingsPage.swift */,
 				82C39068259EE6CD00461BAB /* DefaultPage.swift */,
 				82C39093259F65B600461BAB /* CustomDNS.swift */,
+				82C39063259EE67C00461BAB /* DNSStruct.swift */,
 				829DA7FD259EE532003FACA3 /* Assets.xcassets */,
 				829DA802259EE532003FACA3 /* Info.plist */,
-				82C39063259EE67C00461BAB /* DNSStruct.swift */,
 				829DA7FF259EE532003FACA3 /* Preview Content */,
 			);
 			path = PrivateDNS;

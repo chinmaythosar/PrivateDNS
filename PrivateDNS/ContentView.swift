@@ -11,7 +11,7 @@ import NetworkExtension
 struct ContentView: View {
     // Initialize Variable
     var body: some View {
-        // Tabl View
+        // Tab View showing three options.
         TabView{
             DefaultPage().tabItem {
                 Image(systemName: "network")

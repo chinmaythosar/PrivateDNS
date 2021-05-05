@@ -11,8 +11,11 @@ import NetworkExtension
 @main
 struct PrivateDNSApp: App {
     var body: some Scene {
+        //Main Window
         WindowGroup {
+            //App needs to be launched once for onAppear to execute
             ContentView().onAppear(){
+                // If UserDefaults return nil then set Default DNS CloudFlare DoH
                 if(UserDefaults.standard.string(forKey: "Name") == nil){
                 NEDNSSettingsManager.shared().loadFromPreferences { loadError in
                     if let loadError = loadError {
@@ -29,7 +32,7 @@ struct PrivateDNSApp: App {
                             return
                         }
                     }
-                }   //Set UserDefaults on first launch for applied DNS and Custom Settings
+                }   //Set UserDefaults values on successful application.
                     UserDefaults.standard.set("Default - CloudFlare DoH", forKey: "Name")
                     
                     UserDefaults.standard.set("", forKey: "DNS4_1")

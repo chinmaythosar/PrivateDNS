@@ -7,7 +7,7 @@
 
 import SwiftUI
 import NetworkExtension
-
+//Create a large custom button for 'Apply'
 struct RoundedRectangleButtonStyle: ButtonStyle {
   func makeBody(configuration: Configuration) -> some View {
     HStack {
@@ -23,7 +23,7 @@ struct RoundedRectangleButtonStyle: ButtonStyle {
 
 
 struct CustomDNS: View {
-    
+    //Create Custom variables for various fields.
     @State var alertSetting = false
 
     @State var dotselect: Bool = UserDefaults.standard.bool(forKey: "dotselect")

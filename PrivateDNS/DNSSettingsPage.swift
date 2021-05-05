@@ -9,8 +9,7 @@ import SwiftUI
 import NetworkExtension
 
 
-//Dns Struct for applying DNS.
-
+// Identifiable Struct for List Method
 struct DNSData: Identifiable{
     let id = UUID()
     let name: String
@@ -19,7 +18,7 @@ struct DNSData: Identifiable{
     let dot:Bool
 }
 
-//DNS Servers List
+//DNS Servers List as Static types.
 
 
 let cloudflaredoh = DNSData(name: "CloudFlare DoH", ip: [ "1.1.1.1","1.0.0.1","2606:4700:4700::1111","2606:4700:4700::1001" ], url: "https://cloudflare-dns.com/dns-query", dot: false)
@@ -64,9 +63,11 @@ struct DNSSettingsPage: View {
 
     //Apply DNS input servers and url with bool to select DoT or DoH
     //Use NEDNSSettingsManager Don't create object
+    //Also pass DNSData as argument that is the struct defined containing all DNS Data
     func applyDNS(DNSData:DNSData){
-        // Load current profile for applying
-        if(DNSData.dot == false){
+        
+        if(DNSData.dot == false){ //DoH function
+            // Load current profile for applying - required every time profile needs to be changed.
             NEDNSSettingsManager.shared().loadFromPreferences(){ loadError in
                 if let loadError = loadError {
                     print(loadError)
@@ -91,7 +92,7 @@ struct DNSSettingsPage: View {
                 
             }
         }
-        else{
+        else{ // Else DoT
             NEDNSSettingsManager.shared().loadFromPreferences(){ loadError in
                 if let loadError = loadError {
                     print(loadError)
@@ -128,16 +129,19 @@ struct DNSSettingsPage: View {
    var body: some View {
         VStack{
             Divider()
+            //Top Text box as Header.
             Text("DNS: \(self.currentDNS)")
             Divider()
             List{
+                //List view. Pick a List item from dnslist array and display.
                 ForEach(dnslist){ temp in
                     Text(temp.name).onTapGesture {
                         applyDNS(DNSData: temp)
-                    }.contentShape(Rectangle())
+                    }.contentShape(Rectangle()) //On Tapping a DNS Iten perform onTapGesture.
                 }
             }.onAppear(){
                 self.currentDNS = UserDefaults.standard.string(forKey: "Name") ?? "Default - CloudFlare DoH"
+                //On List appear update currentDNS variable for header
             }
         }
     }
